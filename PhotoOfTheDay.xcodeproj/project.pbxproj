@@ -11,9 +11,16 @@
 		1975DED72ADAF0360024C3DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DED62ADAF0360024C3DC /* ContentView.swift */; };
 		1975DED92ADAF0390024C3DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1975DED82ADAF0390024C3DC /* Assets.xcassets */; };
 		1975DEDC2ADAF0390024C3DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1975DEDB2ADAF0390024C3DC /* Preview Assets.xcassets */; };
-		1975DEE62ADAF03A0024C3DC /* PhotoOfTheDayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DEE52ADAF03A0024C3DC /* PhotoOfTheDayTests.swift */; };
 		1975DEF02ADAF03A0024C3DC /* PhotoOfTheDayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DEEF2ADAF03A0024C3DC /* PhotoOfTheDayUITests.swift */; };
 		1975DEF22ADAF03A0024C3DC /* PhotoOfTheDayUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DEF12ADAF03A0024C3DC /* PhotoOfTheDayUITestsLaunchTests.swift */; };
+		1975DF002ADAF2AA0024C3DC /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DEFF2ADAF2AA0024C3DC /* NetworkProtocol.swift */; };
+		1975DF022ADAF2FD0024C3DC /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF012ADAF2FD0024C3DC /* EndPoint.swift */; };
+		1975DF042ADAF34F0024C3DC /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF032ADAF34F0024C3DC /* HTTPMethod.swift */; };
+		1975DF062ADAF4E90024C3DC /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF052ADAF4E90024C3DC /* NetworkClient.swift */; };
+		1975DF0B2ADB02430024C3DC /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF0A2ADB02430024C3DC /* NetworkError.swift */; };
+		1975DF0F2ADB11C60024C3DC /* MockEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF0E2ADB11C60024C3DC /* MockEndpoint.swift */; };
+		1975DF112ADB12BA0024C3DC /* MockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF102ADB12BA0024C3DC /* MockModel.swift */; };
+		1975DF132ADB12F90024C3DC /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF122ADB12F90024C3DC /* NetworkTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +47,18 @@
 		1975DED82ADAF0390024C3DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1975DEDB2ADAF0390024C3DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1975DEE12ADAF03A0024C3DC /* PhotoOfTheDayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoOfTheDayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1975DEE52ADAF03A0024C3DC /* PhotoOfTheDayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoOfTheDayTests.swift; sourceTree = "<group>"; };
 		1975DEEB2ADAF03A0024C3DC /* PhotoOfTheDayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoOfTheDayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1975DEEF2ADAF03A0024C3DC /* PhotoOfTheDayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoOfTheDayUITests.swift; sourceTree = "<group>"; };
 		1975DEF12ADAF03A0024C3DC /* PhotoOfTheDayUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoOfTheDayUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1975DEFF2ADAF2AA0024C3DC /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
+		1975DF012ADAF2FD0024C3DC /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		1975DF032ADAF34F0024C3DC /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		1975DF052ADAF4E90024C3DC /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		1975DF0A2ADB02430024C3DC /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		1975DF0D2ADB11C60024C3DC /* PhotoOfTheDayTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoOfTheDayTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		1975DF0E2ADB11C60024C3DC /* MockEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEndpoint.swift; sourceTree = "<group>"; };
+		1975DF102ADB12BA0024C3DC /* MockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModel.swift; sourceTree = "<group>"; };
+		1975DF122ADB12F90024C3DC /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +109,7 @@
 		1975DED32ADAF0360024C3DC /* PhotoOfTheDay */ = {
 			isa = PBXGroup;
 			children = (
+				1975DEFE2ADAF21F0024C3DC /* Network */,
 				1975DED42ADAF0360024C3DC /* PhotoOfTheDayApp.swift */,
 				1975DED62ADAF0360024C3DC /* ContentView.swift */,
 				1975DED82ADAF0390024C3DC /* Assets.xcassets */,
@@ -113,7 +129,9 @@
 		1975DEE42ADAF03A0024C3DC /* PhotoOfTheDayTests */ = {
 			isa = PBXGroup;
 			children = (
-				1975DEE52ADAF03A0024C3DC /* PhotoOfTheDayTests.swift */,
+				1975DF0D2ADB11C60024C3DC /* PhotoOfTheDayTests-Bridging-Header.h */,
+				1975DF0C2ADB119A0024C3DC /* Mock */,
+				1975DF122ADB12F90024C3DC /* NetworkTests.swift */,
 			);
 			path = PhotoOfTheDayTests;
 			sourceTree = "<group>";
@@ -125,6 +143,35 @@
 				1975DEF12ADAF03A0024C3DC /* PhotoOfTheDayUITestsLaunchTests.swift */,
 			);
 			path = PhotoOfTheDayUITests;
+			sourceTree = "<group>";
+		};
+		1975DEFE2ADAF21F0024C3DC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1975DF052ADAF4E90024C3DC /* NetworkClient.swift */,
+				1975DF092ADAF6D10024C3DC /* Base */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		1975DF092ADAF6D10024C3DC /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				1975DEFF2ADAF2AA0024C3DC /* NetworkProtocol.swift */,
+				1975DF012ADAF2FD0024C3DC /* EndPoint.swift */,
+				1975DF032ADAF34F0024C3DC /* HTTPMethod.swift */,
+				1975DF0A2ADB02430024C3DC /* NetworkError.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		1975DF0C2ADB119A0024C3DC /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				1975DF0E2ADB11C60024C3DC /* MockEndpoint.swift */,
+				1975DF102ADB12BA0024C3DC /* MockModel.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +245,7 @@
 					};
 					1975DEE02ADAF03A0024C3DC = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 						TestTargetID = 1975DED02ADAF0360024C3DC;
 					};
 					1975DEEA2ADAF03A0024C3DC = {
@@ -258,7 +306,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1975DED72ADAF0360024C3DC /* ContentView.swift in Sources */,
+				1975DF0B2ADB02430024C3DC /* NetworkError.swift in Sources */,
 				1975DED52ADAF0360024C3DC /* PhotoOfTheDayApp.swift in Sources */,
+				1975DF022ADAF2FD0024C3DC /* EndPoint.swift in Sources */,
+				1975DF042ADAF34F0024C3DC /* HTTPMethod.swift in Sources */,
+				1975DF002ADAF2AA0024C3DC /* NetworkProtocol.swift in Sources */,
+				1975DF062ADAF4E90024C3DC /* NetworkClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +319,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1975DEE62ADAF03A0024C3DC /* PhotoOfTheDayTests.swift in Sources */,
+				1975DF132ADB12F90024C3DC /* NetworkTests.swift in Sources */,
+				1975DF0F2ADB11C60024C3DC /* MockEndpoint.swift in Sources */,
+				1975DF112ADB12BA0024C3DC /* MockModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,15 +527,23 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 96EWZNS6N9;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.PhotoOfTheDayTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "PhotoOfTheDayTests/PhotoOfTheDayTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoOfTheDay.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PhotoOfTheDay";
@@ -492,15 +555,22 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 96EWZNS6N9;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.PhotoOfTheDayTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "PhotoOfTheDayTests/PhotoOfTheDayTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoOfTheDay.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PhotoOfTheDay";
