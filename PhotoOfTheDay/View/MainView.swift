@@ -21,28 +21,52 @@ struct ContentView: View {
     
     var body: some View {
         
-        VStack(spacing: 8) {
+        NavigationView {
             
-            Image(uiImage: viewModel.thumbnailImage ?? UIImage(systemName: "globe")!)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+            VStack(spacing: 12) {
+                
+                ZStack(alignment: .trailing) {
+                    
+                        Image(uiImage: viewModel.thumbnailImage ?? UIImage(systemName: "globe")!)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .cornerRadius(8)
+                        
+                        
+                    VStack {
+                        Spacer()
+                        
+                        ImageReference.fullscreen.image
+                            .resizable()
+                            .frame(width: 32, height: 32)
+                            .padding(.all, 24)
+                    }
+                }
+                .frame(maxWidth: .infinity)
                 .frame(height: UIScreen.main.bounds.height/2)
-                .cornerRadius(8)
+
+                
+                
+                Text(viewModel.response?.title ?? "")
+                    .bold()
+                
+                
+                Text(viewModel.response?.explanation ?? "")
+                    .lineLimit(4)
+                
+            }
+            .padding()
+            .onAppear {
+                viewModel.getApiResponse()
+            }
+            .navigationTitle("Picture of the day")
+            .navigationBarTitleDisplayMode(.large)
             
-            
-            Text(viewModel.response?.title ?? "")
-                .bold()
-            
-            
-            Text(viewModel.response?.explanation ?? "")
-            
-        }
-        .padding()
-        .onAppear {
-            viewModel.getApiResponse()
         }
     }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
