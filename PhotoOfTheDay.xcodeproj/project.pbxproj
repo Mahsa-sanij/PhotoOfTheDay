@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1975DED52ADAF0360024C3DC /* PhotoOfTheDayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DED42ADAF0360024C3DC /* PhotoOfTheDayApp.swift */; };
-		1975DED72ADAF0360024C3DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DED62ADAF0360024C3DC /* ContentView.swift */; };
+		1975DED72ADAF0360024C3DC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DED62ADAF0360024C3DC /* MainView.swift */; };
 		1975DED92ADAF0390024C3DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1975DED82ADAF0390024C3DC /* Assets.xcassets */; };
 		1975DEF02ADAF03A0024C3DC /* PhotoOfTheDayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DEEF2ADAF03A0024C3DC /* PhotoOfTheDayUITests.swift */; };
 		1975DEF22ADAF03A0024C3DC /* PhotoOfTheDayUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DEF12ADAF03A0024C3DC /* PhotoOfTheDayUITestsLaunchTests.swift */; };
@@ -27,6 +27,9 @@
 		1975DF252ADB63290024C3DC /* ImageDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF242ADB63290024C3DC /* ImageDataProvider.swift */; };
 		1975DF272ADB6CFE0024C3DC /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF262ADB6CFE0024C3DC /* ViewModel.swift */; };
 		1975DF2C2ADB72340024C3DC /* ImageDownSampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF2B2ADB72340024C3DC /* ImageDownSampler.swift */; };
+		1975DF2F2ADC37640024C3DC /* img_trumpet.png in Resources */ = {isa = PBXBuildFile; fileRef = 1975DF2E2ADC37640024C3DC /* img_trumpet.png */; };
+		1975DF312ADC3FBD0024C3DC /* NasaEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF302ADC3FBD0024C3DC /* NasaEndPoint.swift */; };
+		1975DF342ADC42770024C3DC /* NasaResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF332ADC42770024C3DC /* NasaResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +52,7 @@
 /* Begin PBXFileReference section */
 		1975DED12ADAF0360024C3DC /* PhotoOfTheDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoOfTheDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1975DED42ADAF0360024C3DC /* PhotoOfTheDayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoOfTheDayApp.swift; sourceTree = "<group>"; };
-		1975DED62ADAF0360024C3DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1975DED62ADAF0360024C3DC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1975DED82ADAF0390024C3DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1975DEE12ADAF03A0024C3DC /* PhotoOfTheDayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoOfTheDayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1975DEEB2ADAF03A0024C3DC /* PhotoOfTheDayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoOfTheDayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +74,9 @@
 		1975DF242ADB63290024C3DC /* ImageDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataProvider.swift; sourceTree = "<group>"; };
 		1975DF262ADB6CFE0024C3DC /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		1975DF2B2ADB72340024C3DC /* ImageDownSampler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownSampler.swift; sourceTree = "<group>"; };
+		1975DF2E2ADC37640024C3DC /* img_trumpet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_trumpet.png; sourceTree = "<group>"; };
+		1975DF302ADC3FBD0024C3DC /* NasaEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaEndPoint.swift; sourceTree = "<group>"; };
+		1975DF332ADC42770024C3DC /* NasaResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +131,7 @@
 				1975DF232ADB62EC0024C3DC /* DataProvider */,
 				1975DF182ADB5C000024C3DC /* Disk */,
 				1975DEFE2ADAF21F0024C3DC /* Network */,
+				1975DF322ADC425A0024C3DC /* Model */,
 				1975DF2A2ADB714A0024C3DC /* ViewModel */,
 				1975DF292ADB71430024C3DC /* View */,
 			);
@@ -135,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				1975DF0D2ADB11C60024C3DC /* PhotoOfTheDayTests-Bridging-Header.h */,
+				1975DF2D2ADC37430024C3DC /* MockResource */,
 				1975DF0C2ADB119A0024C3DC /* Mock */,
 				1975DF122ADB12F90024C3DC /* NetworkTests.swift */,
 				1975DF212ADB627B0024C3DC /* DiskTests.swift */,
@@ -156,6 +164,7 @@
 			children = (
 				1975DF092ADAF6D10024C3DC /* Base */,
 				1975DF052ADAF4E90024C3DC /* NetworkClient.swift */,
+				1975DF302ADC3FBD0024C3DC /* NasaEndPoint.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -211,7 +220,7 @@
 		1975DF292ADB71430024C3DC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1975DED62ADAF0360024C3DC /* ContentView.swift */,
+				1975DED62ADAF0360024C3DC /* MainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -222,6 +231,22 @@
 				1975DF262ADB6CFE0024C3DC /* ViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1975DF2D2ADC37430024C3DC /* MockResource */ = {
+			isa = PBXGroup;
+			children = (
+				1975DF2E2ADC37640024C3DC /* img_trumpet.png */,
+			);
+			path = MockResource;
+			sourceTree = "<group>";
+		};
+		1975DF322ADC425A0024C3DC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1975DF332ADC42770024C3DC /* NasaResult.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,6 +362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1975DF2F2ADC37640024C3DC /* img_trumpet.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,11 +382,13 @@
 			files = (
 				1975DF1D2ADB5C980024C3DC /* DiskManager.swift in Sources */,
 				1975DF1A2ADB5C520024C3DC /* ImageDiskManager.swift in Sources */,
-				1975DED72ADAF0360024C3DC /* ContentView.swift in Sources */,
+				1975DED72ADAF0360024C3DC /* MainView.swift in Sources */,
 				1975DF0B2ADB02430024C3DC /* NetworkError.swift in Sources */,
 				1975DF252ADB63290024C3DC /* ImageDataProvider.swift in Sources */,
+				1975DF312ADC3FBD0024C3DC /* NasaEndPoint.swift in Sources */,
 				1975DED52ADAF0360024C3DC /* PhotoOfTheDayApp.swift in Sources */,
 				1975DF2C2ADB72340024C3DC /* ImageDownSampler.swift in Sources */,
+				1975DF342ADC42770024C3DC /* NasaResult.swift in Sources */,
 				1975DF022ADAF2FD0024C3DC /* EndPoint.swift in Sources */,
 				1975DF042ADAF34F0024C3DC /* HTTPMethod.swift in Sources */,
 				1975DF002ADAF2AA0024C3DC /* NetworkProtocol.swift in Sources */,

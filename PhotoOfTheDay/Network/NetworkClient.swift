@@ -39,6 +39,7 @@ struct NetworkClient: NetworkProtocol {
                 }
             }
             .retry(retryCount)
+            .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
     

@@ -6,17 +6,27 @@
 //
 
 import Foundation
-import UIKit
 import Combine
+import UIKit
 
-struct ImageDataProvider {
+struct NasaDataProvider {
     
-    private let networkClient = NetworkClient()
-    private let diskClient = ImageDiskClient()
+    private let networkClient: NetworkClient
+    private let diskClient: ImageDiskClient
     
     private var cancellables = Set<AnyCancellable>()
-    private var downsampler = ImageDownSampler(thumbnailSize: .init(width: UIScreen.main.bounds.height/2, height: UIScreen.main.bounds.height/2))
+    private var downsampler = ImageDownSampler(thumbnailSize: .init(width: ImageDownSampler.halfScreenHeight, height: ImageDownSampler.halfScreenHeight))
     
+    init(networkClient: NetworkClient, diskClient: ImageDiskClient) {
+        self.networkClient = networkClient
+        self.diskClient = diskClient
+    }
+    
+    func getApiResponse() -> AnyPublisher<NasaResult, Error> {
+        
+        return networkClient.request(to: NasaEndPoint.planetary, decodingType: NasaResult.self)
+        
+    }
     
     func fetchImage(for date: String, from url: String) -> AnyPublisher<Bool, Error> {
         
@@ -46,7 +56,7 @@ struct ImageDataProvider {
         
     }
     
-    func getThumbnailImage(for date: String, from url: String) -> AnyPublisher<UIImage, Error> {
+    func getThumbnailImage(for date: String) -> AnyPublisher<UIImage, Error> {
         
         let filename = date
         
@@ -65,7 +75,7 @@ struct ImageDataProvider {
         
     }
     
-    func getOriginalImage(for date: String, from url: String) -> AnyPublisher<UIImage, Error> {
+    func getOriginalImage(for date: String) -> AnyPublisher<UIImage, Error> {
         
         let filename = date
         

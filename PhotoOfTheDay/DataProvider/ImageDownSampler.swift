@@ -11,7 +11,7 @@ import UIKit
 struct ImageDownSampler {
     
     let thumbnailSize : CGSize
-    let scale: CGFloat = UIScreen.main.scale
+    let scale: CGFloat = 1
     
     func downsample(in imageURL: URL) -> UIImage? {
 
@@ -33,6 +33,14 @@ struct ImageDownSampler {
         }
         
         return UIImage(cgImage: downsampledImage)
+    }
+    
+}
+
+extension ImageDownSampler {
+    
+    static var halfScreenHeight: CGFloat {
+        return UIScreen.main.bounds.height/2
     }
     
 }
