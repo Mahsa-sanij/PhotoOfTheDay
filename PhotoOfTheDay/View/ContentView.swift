@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
+    
+    let viewModel = ViewModel()
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -16,6 +20,9 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+        .onAppear {
+            viewModel.getImage()
+        }
     }
 }
 

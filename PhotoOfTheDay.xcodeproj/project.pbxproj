@@ -10,7 +10,6 @@
 		1975DED52ADAF0360024C3DC /* PhotoOfTheDayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DED42ADAF0360024C3DC /* PhotoOfTheDayApp.swift */; };
 		1975DED72ADAF0360024C3DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DED62ADAF0360024C3DC /* ContentView.swift */; };
 		1975DED92ADAF0390024C3DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1975DED82ADAF0390024C3DC /* Assets.xcassets */; };
-		1975DEDC2ADAF0390024C3DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1975DEDB2ADAF0390024C3DC /* Preview Assets.xcassets */; };
 		1975DEF02ADAF03A0024C3DC /* PhotoOfTheDayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DEEF2ADAF03A0024C3DC /* PhotoOfTheDayUITests.swift */; };
 		1975DEF22ADAF03A0024C3DC /* PhotoOfTheDayUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DEF12ADAF03A0024C3DC /* PhotoOfTheDayUITestsLaunchTests.swift */; };
 		1975DF002ADAF2AA0024C3DC /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DEFF2ADAF2AA0024C3DC /* NetworkProtocol.swift */; };
@@ -21,6 +20,13 @@
 		1975DF0F2ADB11C60024C3DC /* MockEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF0E2ADB11C60024C3DC /* MockEndpoint.swift */; };
 		1975DF112ADB12BA0024C3DC /* MockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF102ADB12BA0024C3DC /* MockModel.swift */; };
 		1975DF132ADB12F90024C3DC /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF122ADB12F90024C3DC /* NetworkTests.swift */; };
+		1975DF172ADB511F0024C3DC /* NetworkRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF162ADB511F0024C3DC /* NetworkRequestBuilder.swift */; };
+		1975DF1A2ADB5C520024C3DC /* ImageDiskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF192ADB5C510024C3DC /* ImageDiskManager.swift */; };
+		1975DF1D2ADB5C980024C3DC /* DiskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF1C2ADB5C980024C3DC /* DiskManager.swift */; };
+		1975DF222ADB627B0024C3DC /* DiskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF212ADB627B0024C3DC /* DiskTests.swift */; };
+		1975DF252ADB63290024C3DC /* ImageDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF242ADB63290024C3DC /* ImageDataProvider.swift */; };
+		1975DF272ADB6CFE0024C3DC /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF262ADB6CFE0024C3DC /* ViewModel.swift */; };
+		1975DF2C2ADB72340024C3DC /* ImageDownSampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF2B2ADB72340024C3DC /* ImageDownSampler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +51,6 @@
 		1975DED42ADAF0360024C3DC /* PhotoOfTheDayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoOfTheDayApp.swift; sourceTree = "<group>"; };
 		1975DED62ADAF0360024C3DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1975DED82ADAF0390024C3DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1975DEDB2ADAF0390024C3DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1975DEE12ADAF03A0024C3DC /* PhotoOfTheDayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoOfTheDayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1975DEEB2ADAF03A0024C3DC /* PhotoOfTheDayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoOfTheDayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1975DEEF2ADAF03A0024C3DC /* PhotoOfTheDayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoOfTheDayUITests.swift; sourceTree = "<group>"; };
@@ -59,6 +64,13 @@
 		1975DF0E2ADB11C60024C3DC /* MockEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEndpoint.swift; sourceTree = "<group>"; };
 		1975DF102ADB12BA0024C3DC /* MockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModel.swift; sourceTree = "<group>"; };
 		1975DF122ADB12F90024C3DC /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
+		1975DF162ADB511F0024C3DC /* NetworkRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestBuilder.swift; sourceTree = "<group>"; };
+		1975DF192ADB5C510024C3DC /* ImageDiskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDiskManager.swift; sourceTree = "<group>"; };
+		1975DF1C2ADB5C980024C3DC /* DiskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskManager.swift; sourceTree = "<group>"; };
+		1975DF212ADB627B0024C3DC /* DiskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskTests.swift; sourceTree = "<group>"; };
+		1975DF242ADB63290024C3DC /* ImageDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataProvider.swift; sourceTree = "<group>"; };
+		1975DF262ADB6CFE0024C3DC /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		1975DF2B2ADB72340024C3DC /* ImageDownSampler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownSampler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,21 +121,14 @@
 		1975DED32ADAF0360024C3DC /* PhotoOfTheDay */ = {
 			isa = PBXGroup;
 			children = (
+				1975DF282ADB712D0024C3DC /* App */,
+				1975DF232ADB62EC0024C3DC /* DataProvider */,
+				1975DF182ADB5C000024C3DC /* Disk */,
 				1975DEFE2ADAF21F0024C3DC /* Network */,
-				1975DED42ADAF0360024C3DC /* PhotoOfTheDayApp.swift */,
-				1975DED62ADAF0360024C3DC /* ContentView.swift */,
-				1975DED82ADAF0390024C3DC /* Assets.xcassets */,
-				1975DEDA2ADAF0390024C3DC /* Preview Content */,
+				1975DF2A2ADB714A0024C3DC /* ViewModel */,
+				1975DF292ADB71430024C3DC /* View */,
 			);
 			path = PhotoOfTheDay;
-			sourceTree = "<group>";
-		};
-		1975DEDA2ADAF0390024C3DC /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				1975DEDB2ADAF0390024C3DC /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		1975DEE42ADAF03A0024C3DC /* PhotoOfTheDayTests */ = {
@@ -132,6 +137,7 @@
 				1975DF0D2ADB11C60024C3DC /* PhotoOfTheDayTests-Bridging-Header.h */,
 				1975DF0C2ADB119A0024C3DC /* Mock */,
 				1975DF122ADB12F90024C3DC /* NetworkTests.swift */,
+				1975DF212ADB627B0024C3DC /* DiskTests.swift */,
 			);
 			path = PhotoOfTheDayTests;
 			sourceTree = "<group>";
@@ -148,8 +154,8 @@
 		1975DEFE2ADAF21F0024C3DC /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				1975DF052ADAF4E90024C3DC /* NetworkClient.swift */,
 				1975DF092ADAF6D10024C3DC /* Base */,
+				1975DF052ADAF4E90024C3DC /* NetworkClient.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -161,6 +167,7 @@
 				1975DF012ADAF2FD0024C3DC /* EndPoint.swift */,
 				1975DF032ADAF34F0024C3DC /* HTTPMethod.swift */,
 				1975DF0A2ADB02430024C3DC /* NetworkError.swift */,
+				1975DF162ADB511F0024C3DC /* NetworkRequestBuilder.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -172,6 +179,49 @@
 				1975DF102ADB12BA0024C3DC /* MockModel.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		1975DF182ADB5C000024C3DC /* Disk */ = {
+			isa = PBXGroup;
+			children = (
+				1975DF192ADB5C510024C3DC /* ImageDiskManager.swift */,
+				1975DF1C2ADB5C980024C3DC /* DiskManager.swift */,
+			);
+			path = Disk;
+			sourceTree = "<group>";
+		};
+		1975DF232ADB62EC0024C3DC /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				1975DF242ADB63290024C3DC /* ImageDataProvider.swift */,
+				1975DF2B2ADB72340024C3DC /* ImageDownSampler.swift */,
+			);
+			path = DataProvider;
+			sourceTree = "<group>";
+		};
+		1975DF282ADB712D0024C3DC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1975DED82ADAF0390024C3DC /* Assets.xcassets */,
+				1975DED42ADAF0360024C3DC /* PhotoOfTheDayApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		1975DF292ADB71430024C3DC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1975DED62ADAF0360024C3DC /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1975DF2A2ADB714A0024C3DC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1975DF262ADB6CFE0024C3DC /* ViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,7 +329,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1975DEDC2ADAF0390024C3DC /* Preview Assets.xcassets in Resources */,
 				1975DED92ADAF0390024C3DC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,13 +354,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1975DF1D2ADB5C980024C3DC /* DiskManager.swift in Sources */,
+				1975DF1A2ADB5C520024C3DC /* ImageDiskManager.swift in Sources */,
 				1975DED72ADAF0360024C3DC /* ContentView.swift in Sources */,
 				1975DF0B2ADB02430024C3DC /* NetworkError.swift in Sources */,
+				1975DF252ADB63290024C3DC /* ImageDataProvider.swift in Sources */,
 				1975DED52ADAF0360024C3DC /* PhotoOfTheDayApp.swift in Sources */,
+				1975DF2C2ADB72340024C3DC /* ImageDownSampler.swift in Sources */,
 				1975DF022ADAF2FD0024C3DC /* EndPoint.swift in Sources */,
 				1975DF042ADAF34F0024C3DC /* HTTPMethod.swift in Sources */,
 				1975DF002ADAF2AA0024C3DC /* NetworkProtocol.swift in Sources */,
 				1975DF062ADAF4E90024C3DC /* NetworkClient.swift in Sources */,
+				1975DF272ADB6CFE0024C3DC /* ViewModel.swift in Sources */,
+				1975DF172ADB511F0024C3DC /* NetworkRequestBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1975DF222ADB627B0024C3DC /* DiskTests.swift in Sources */,
 				1975DF132ADB12F90024C3DC /* NetworkTests.swift in Sources */,
 				1975DF0F2ADB11C60024C3DC /* MockEndpoint.swift in Sources */,
 				1975DF112ADB12BA0024C3DC /* MockModel.swift in Sources */,
@@ -471,7 +527,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"PhotoOfTheDay/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 96EWZNS6N9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -500,7 +556,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"PhotoOfTheDay/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 96EWZNS6N9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

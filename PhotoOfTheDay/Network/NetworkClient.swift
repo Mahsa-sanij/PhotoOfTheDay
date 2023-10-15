@@ -12,6 +12,8 @@ struct NetworkClient: NetworkProtocol {
     
     private let urlSession = URLSession(configuration: .default)
     
+    private let retryCount = 1
+    
     func request<T>(to endPoint: EndPoint, decodingType: T.Type) -> AnyPublisher<T, Error> where T : Decodable {
         
         guard let url = URL(string: endPoint.url) else {
@@ -19,55 +21,62 @@ struct NetworkClient: NetworkProtocol {
         }
         
         var request = URLRequest(url: url)
-        setupRequest(endPoint, for: &request)
+        NetworkRequestBuilder().setupRequest(endPoint, for: &request)
         
         return urlSession.dataTaskPublisher(for: request)
-            .tryMap { element -> T in
+            .tryMap { result -> T in
                 
-                guard let httpResponse = element.response as? HTTPURLResponse,
-                      (httpResponse.statusCode == 200 || httpResponse.statusCode == 202) else {
+                guard checkResponseCodeIsValid(for: result.response) else {
                     throw NetworkError.requestFailure
                 }
                 
                 do {
-                    let response = try JSONDecoder().decode(T.self, from: element.data)
+                    let response = try JSONDecoder().decode(T.self, from: result.data)
                     return response
                 }
                 catch {
                     throw NetworkError.jsonConversionFailure
                 }
             }
-            .retry(1)
+            .retry(retryCount)
             .eraseToAnyPublisher()
     }
     
-    private func setupRequest(_ endpoint: EndPoint, for request: inout URLRequest) {
+    
+    func download(from url: String, headers: [String: String]? = nil, urlParameters: [String: String]? = nil) -> AnyPublisher<Data, Error> {
         
-        request.httpMethod = endpoint.httpMethod.name
-        endpoint.headers?.forEach {
-            request.addValue($0.value, forHTTPHeaderField: $0.key)
+        guard let url_ = URL(string: url) else {
+            return Fail(error: NetworkError.urlInvalid).eraseToAnyPublisher()
         }
         
-        //Configure URL parameters
-        if let urlParameters = endpoint.urlParameters,
-           let url = request.url,
-           var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true) {
-            urlComponents.queryItems = urlParameters.map { URLQueryItem(name: $0.key, value: $0.value)
+        var request = URLRequest(url: url_)
+        let requestBuilder = NetworkRequestBuilder()
+        
+        requestBuilder.configureHeaders(headers, for: &request)
+        requestBuilder.configureUrlParameters(urlParameters, for: &request)
+        
+        return urlSession.dataTaskPublisher(for: request)
+            .tryMap { result -> Data in
+                
+                guard checkResponseCodeIsValid(for: result.response)  else {
+                    throw NetworkError.requestFailure
+                }
+                
+                return result.data
             }
-            
-            request.url = urlComponents.url
+            .retry(retryCount)
+            .eraseToAnyPublisher()
+    }
+    
+    
+    private func checkResponseCodeIsValid(for response: URLResponse) -> Bool {
+        
+        if let httpResponse = response as? HTTPURLResponse
+        {
+            return (httpResponse.statusCode == 200 || httpResponse.statusCode == 202)
         }
         
-        
-        //Configure body parameters for POST requests
-        if endpoint.httpMethod == .post {
-            
-            if let bodyParameters = endpoint.body,
-               let payload = try? JSONSerialization.data(withJSONObject: bodyParameters, options: []) {
-                request.httpBody = payload
-            }
-            
-        }
+        return false
         
     }
     

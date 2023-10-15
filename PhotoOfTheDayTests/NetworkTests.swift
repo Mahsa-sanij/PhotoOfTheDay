@@ -91,4 +91,18 @@ final class NetworkTests: XCTestCase {
         waitForExpectations(timeout: 1000)
     }
     
+    func test_whenURLParameters_thenValidURL(){
+        
+        let endPoint = MockEndpoint.successUrl
+        
+        guard let url = URL(string: endPoint.url) else {
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        NetworkRequestBuilder().setupRequest(endPoint, for: &request)
+        
+        XCTAssertEqual(request.url?.absoluteString, "https://api.nasa.gov/planetary/apod?startDate=2023-10-12&endDate=2023-10-22")
+    }
+    
 }

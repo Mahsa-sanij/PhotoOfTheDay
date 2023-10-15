@@ -42,7 +42,16 @@ enum MockEndpoint: PhotoOfTheDay.EndPoint {
     }
     
     var urlParameters: [String : String]? {
-        return nil
+        
+        switch self {
+            
+        case .successUrl:
+            return ["startDate": "2023-10-12",
+                    "endDate": "2023-10-22"]
+            
+        default:
+            return nil
+        }
     }
     
     var body: [String : Any]? {
