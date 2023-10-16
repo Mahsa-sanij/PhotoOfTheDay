@@ -14,9 +14,13 @@ class ViewModel: ObservableObject {
     let dataProvider : NasaDataProvider
     private var cancellables = Set<AnyCancellable>()
     
-    @Published var response : NasaResult?
-    @Published var thumbnailImage : UIImage?
-    
+    private var response: NasaResult?
+    @Published var title: String?
+    @Published var thumbnailImage: UIImage?
+    @Published var isLoading: Bool = false
+    @Published var errorMessage: String? = nil
+    @Published var showFullScreen: Bool = false
+
     init(dataProvider: NasaDataProvider) {
         
         self.dataProvider = dataProvider
@@ -24,21 +28,28 @@ class ViewModel: ObservableObject {
     
     func getApiResponse(){
         
+        self.isLoading = true
+        
         dataProvider.getApiResponse()
             .sink { result in
                 
-                //TODO:
                 switch result {
                     
                 case .finished:
                     self.loadImage()
                     
                 case .failure(let error):
-                    print(error)
+                    self.isLoading = false
+                    self.errorMessage = error.localizedDescription
                 }
                 
             } receiveValue: { data in
                 self.response = data
+                
+                self.title = self.response?.title
+                if self.response?.media_type == .video {
+                    self.response?.url = self.response?.thumbnail_url
+                }
             }
             .store(in: &cancellables)
         
@@ -47,28 +58,43 @@ class ViewModel: ObservableObject {
     func loadImage() {
         
         guard let date = response?.date else {
+            isLoading = false
             return
         }
         
         dataProvider.fetchImage(for: date, from: response?.url ?? "")
-            .sink { error in
-                print(error)
+            .sink { result in
+                
+                self.isLoading = false
+                
             } receiveValue: { isOnDisk in
                 
                 if isOnDisk {
-                    self.dataProvider.getThumbnailImage(for: date)
-                        .sink { error in
-                            print(error)
-                        } receiveValue: { image in
-                            self.thumbnailImage = image
-                        }
-                        .store(in: &self.cancellables)
-
+                    
+                    self.getThumbnailImageFromDisk(for: date)
                 }
             }
             .store(in: &cancellables)
-
+    }
+    
+    func getThumbnailImageFromDisk(for date: String) {
         
-        
+        self.dataProvider.getThumbnailImage(for: date)
+            .sink { result in
+                
+                self.isLoading = false
+                switch result {
+                    
+                case .finished:
+                    break
+                    
+                case .failure(let error):
+                    self.errorMessage = error.localizedDescription
+                }
+                
+            } receiveValue: { image in
+                self.thumbnailImage = image
+            }
+            .store(in: &self.cancellables)
     }
 }

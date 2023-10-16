@@ -8,68 +8,119 @@
 import SwiftUI
 import Combine
 
-struct ContentView: View {
+struct MainView: View {
     
-    let networkClient = NetworkClient()
-    let diskClient = ImageDiskClient()
-    @ObservedObject var viewModel : ViewModel
+    @EnvironmentObject var viewModel : ViewModel
     
-    init() {
-        let dataProvider = NasaDataProvider(networkClient: networkClient, diskClient: diskClient)
-        viewModel = ViewModel(dataProvider: dataProvider)
-    }
+    private let animationDuration: CGFloat = 0.35
+    private let titlePadding: CGFloat = 32
     
     var body: some View {
         
         NavigationView {
             
-            VStack(spacing: 12) {
+            ZStack {
                 
-                ZStack(alignment: .trailing) {
+                ZStack {
                     
-                        Image(uiImage: viewModel.thumbnailImage ?? UIImage(systemName: "globe")!)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .cornerRadius(8)
+                    if viewModel.isLoading {
                         
-                        
-                    VStack {
-                        Spacer()
-                        
-                        ImageReference.fullscreen.image
-                            .resizable()
-                            .frame(width: 32, height: 32)
-                            .padding(.all, 24)
+                        ProgressView()
+                            .progressViewStyle(.circular)
                     }
+                    else if viewModel.errorMessage != nil {
+                        
+                        Text(viewModel.errorMessage ?? "")
+                            .padding(.horizontal, 32)
+                        
+                    }
+                    else if viewModel.title != nil && viewModel.thumbnailImage != nil {
+                        
+                        ZStack(alignment: .center) {
+                            
+                            VStack(spacing: 12) {
+                                
+                                Spacer()
+                                
+                                ThumbnailImageView()
+                                    .frame(height: UIScreen.height / 2)
+                                
+                                Spacer()
+                                
+                            }
+                            
+                            Text(self.viewModel.title ?? "")
+                                .font(.title)
+                                .bold()
+                                .multilineTextAlignment(.center)
+                                .fixedSize(horizontal: false, vertical: true)
+                                .opacity(self.viewModel.showFullScreen ? 0 : 1)
+                                .offset(y: UIScreen.height / 4 + titlePadding)
+                            
+                        }
+                        .padding()
+                        
+                    }
+                    
+                    if viewModel.showFullScreen {
+                        
+                        //TODO:
+                        FullScreenView(image: viewModel.thumbnailImage!)
+                            .onTapGesture {
+                                self.viewModel.showFullScreen.toggle()
+                            }
+                    }
+                    
                 }
-                .frame(maxWidth: .infinity)
-                .frame(height: UIScreen.main.bounds.height/2)
-
-                
-                
-                Text(viewModel.response?.title ?? "")
-                    .bold()
-                
-                
-                Text(viewModel.response?.explanation ?? "")
-                    .lineLimit(4)
+                .animation(.easeInOut, value: animationDuration)
+                .onAppear {
+                    viewModel.getApiResponse()
+                }
                 
             }
-            .padding()
-            .onAppear {
-                viewModel.getApiResponse()
-            }
-            .navigationTitle("Picture of the day")
+            .navigationTitle(TextReferences.title)
             .navigationBarTitleDisplayMode(.large)
             
         }
     }
 }
 
-
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+struct ThumbnailImageView: View {
+    
+    @EnvironmentObject var viewModel: ViewModel
+    
+    var body: some View {
+        
+        ZStack(alignment: .trailing) {
+            
+            Image(uiImage: viewModel.thumbnailImage!)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+            
+            
+            if !viewModel.showFullScreen {
+                
+                VStack {
+                    
+                    Spacer()
+                    
+                    ImageReference.fullscreen.image
+                        .resizable()
+                        .onTapGesture {
+                            withAnimation(.spring()) {
+                                self.viewModel.showFullScreen.toggle()
+                            }
+                        }
+                        .padding(.all, 4)
+                        .background(CardView(radius: 4))
+                        .frame(width: 32, height: 32)
+                        .padding(.all, 24)
+                    
+                }
+            }
+        }
+        
     }
+    
 }
+

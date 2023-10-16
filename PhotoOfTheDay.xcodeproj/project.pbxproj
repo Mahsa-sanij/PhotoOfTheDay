@@ -32,13 +32,15 @@
 		1975DF342ADC42770024C3DC /* NasaResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF332ADC42770024C3DC /* NasaResult.swift */; };
 		1975DF3A2ADC4EF50024C3DC /* ImageReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF392ADC4EF50024C3DC /* ImageReference.swift */; };
 		1975DF3C2ADC4F0F0024C3DC /* ImageAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1975DF3B2ADC4F0E0024C3DC /* ImageAsset.xcassets */; };
-		1975DF3E2ADC4F1F0024C3DC /* ColorAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1975DF3D2ADC4F1F0024C3DC /* ColorAsset.xcassets */; };
 		1975DF402ADC4F2A0024C3DC /* ColorReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF3F2ADC4F2A0024C3DC /* ColorReference.swift */; };
 		1975DF442ADC4F6B0024C3DC /* TextReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF432ADC4F6B0024C3DC /* TextReference.swift */; };
 		1975DF462ADC4F8F0024C3DC /* LanguageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF452ADC4F8F0024C3DC /* LanguageUtil.swift */; };
 		1975DF4A2ADC4FDA0024C3DC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF492ADC4FDA0024C3DC /* String.swift */; };
 		1975DF4B2ADC50140024C3DC /* Base.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1975DF4D2ADC50140024C3DC /* Base.strings */; };
 		1975DF502ADC62BE0024C3DC /* FullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF4F2ADC62BE0024C3DC /* FullScreenView.swift */; };
+		199CA1212ADD044700AEE0FA /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199CA1202ADD044700AEE0FA /* UIScreen.swift */; };
+		199CA1242ADD047100AEE0FA /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199CA1232ADD047100AEE0FA /* CardView.swift */; };
+		199CA1262ADD05EB00AEE0FA /* ColorAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 199CA1252ADD05EB00AEE0FA /* ColorAsset.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,7 +90,6 @@
 		1975DF332ADC42770024C3DC /* NasaResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaResult.swift; sourceTree = "<group>"; };
 		1975DF392ADC4EF50024C3DC /* ImageReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageReference.swift; sourceTree = "<group>"; };
 		1975DF3B2ADC4F0E0024C3DC /* ImageAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageAsset.xcassets; sourceTree = "<group>"; };
-		1975DF3D2ADC4F1F0024C3DC /* ColorAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAsset.xcassets; sourceTree = "<group>"; };
 		1975DF3F2ADC4F2A0024C3DC /* ColorReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorReference.swift; sourceTree = "<group>"; };
 		1975DF432ADC4F6B0024C3DC /* TextReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextReference.swift; sourceTree = "<group>"; };
 		1975DF452ADC4F8F0024C3DC /* LanguageUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageUtil.swift; sourceTree = "<group>"; };
@@ -96,6 +97,9 @@
 		1975DF4C2ADC50140024C3DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Base.strings; sourceTree = "<group>"; };
 		1975DF4E2ADC502E0024C3DC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Base.strings; sourceTree = "<group>"; };
 		1975DF4F2ADC62BE0024C3DC /* FullScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenView.swift; sourceTree = "<group>"; };
+		199CA1202ADD044700AEE0FA /* UIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreen.swift; sourceTree = "<group>"; };
+		199CA1232ADD047100AEE0FA /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		199CA1252ADD05EB00AEE0FA /* ColorAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAsset.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,8 +307,8 @@
 		1975DF382ADC4ED30024C3DC /* Color */ = {
 			isa = PBXGroup;
 			children = (
-				1975DF3D2ADC4F1F0024C3DC /* ColorAsset.xcassets */,
 				1975DF3F2ADC4F2A0024C3DC /* ColorReference.swift */,
+				199CA1252ADD05EB00AEE0FA /* ColorAsset.xcassets */,
 			);
 			path = Color;
 			sourceTree = "<group>";
@@ -312,6 +316,7 @@
 		1975DF472ADC4FC70024C3DC /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				199CA1222ADD045C00AEE0FA /* CustomView */,
 				1975DF482ADC4FCE0024C3DC /* Extension */,
 			);
 			path = Utilities;
@@ -321,8 +326,17 @@
 			isa = PBXGroup;
 			children = (
 				1975DF492ADC4FDA0024C3DC /* String.swift */,
+				199CA1202ADD044700AEE0FA /* UIScreen.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		199CA1222ADD045C00AEE0FA /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				199CA1232ADD047100AEE0FA /* CardView.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,9 +445,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1975DF3E2ADC4F1F0024C3DC /* ColorAsset.xcassets in Resources */,
 				1975DF3C2ADC4F0F0024C3DC /* ImageAsset.xcassets in Resources */,
 				1975DED92ADAF0390024C3DC /* Assets.xcassets in Resources */,
+				199CA1262ADD05EB00AEE0FA /* ColorAsset.xcassets in Resources */,
 				1975DF4B2ADC50140024C3DC /* Base.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -477,6 +491,8 @@
 				1975DF042ADAF34F0024C3DC /* HTTPMethod.swift in Sources */,
 				1975DF002ADAF2AA0024C3DC /* NetworkProtocol.swift in Sources */,
 				1975DF062ADAF4E90024C3DC /* NetworkClient.swift in Sources */,
+				199CA1212ADD044700AEE0FA /* UIScreen.swift in Sources */,
+				199CA1242ADD047100AEE0FA /* CardView.swift in Sources */,
 				1975DF442ADC4F6B0024C3DC /* TextReference.swift in Sources */,
 				1975DF272ADB6CFE0024C3DC /* ViewModel.swift in Sources */,
 				1975DF172ADB511F0024C3DC /* NetworkRequestBuilder.swift in Sources */,

@@ -36,7 +36,8 @@ enum NasaEndPoint: EndPoint {
     }
     
     var urlParameters: [String : String]? {
-        return ["api_key": NasaEndPoint.apiKey]
+        return ["api_key": NasaEndPoint.apiKey,
+                "thumbs": "True"]
     }
     
     var body: [String : Any]? {

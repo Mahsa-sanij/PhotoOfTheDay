@@ -15,7 +15,7 @@ struct NasaDataProvider {
     private let diskClient: ImageDiskClient
     
     private var cancellables = Set<AnyCancellable>()
-    private var downsampler = ImageDownSampler(thumbnailSize: .init(width: ImageDownSampler.halfScreenHeight, height: ImageDownSampler.halfScreenHeight))
+    private var downsampler = ImageDownSampler(thumbnailSize: .init(width: UIScreen.height/2 , height: UIScreen.height/2))
     
     init(networkClient: NetworkClient, diskClient: ImageDiskClient) {
         self.networkClient = networkClient

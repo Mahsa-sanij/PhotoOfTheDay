@@ -36,11 +36,3 @@ struct ImageDownSampler {
     }
     
 }
-
-extension ImageDownSampler {
-    
-    static var halfScreenHeight: CGFloat {
-        return UIScreen.main.bounds.height/2
-    }
-    
-}
