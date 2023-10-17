@@ -11,9 +11,11 @@ import Combine
 struct MainView: View {
     
     @EnvironmentObject var viewModel : ViewModel
+    @Namespace var animation
     
     private let animationDuration: CGFloat = 0.35
     private let titlePadding: CGFloat = 32
+    
     
     var body: some View {
         
@@ -25,13 +27,12 @@ struct MainView: View {
                     
                     if viewModel.isLoading {
                         
-                        ProgressView()
-                            .progressViewStyle(.circular)
+                        LoadingView()
+                        
                     }
                     else if viewModel.errorMessage != nil {
                         
-                        Text(viewModel.errorMessage ?? "")
-                            .padding(.horizontal, 32)
+                        
                         
                     }
                     else if viewModel.title != nil && viewModel.thumbnailImage != nil {
@@ -42,8 +43,12 @@ struct MainView: View {
                                 
                                 Spacer()
                                 
-                                ThumbnailImageView()
-                                    .frame(height: UIScreen.height / 2)
+                                if !viewModel.showFullScreen {
+                                    
+                                    ThumbnailImageView()
+                                        .frame(height: UIScreen.height / 2)
+                                        
+                                }
                                 
                                 Spacer()
                                 
@@ -64,17 +69,20 @@ struct MainView: View {
                     
                     if viewModel.showFullScreen {
                         
-                        //TODO:
-                        FullScreenView(image: viewModel.thumbnailImage!)
+                        FullScreenView(image: viewModel.originalImage!)
                             .onTapGesture {
-                                self.viewModel.showFullScreen.toggle()
+                                withAnimation {
+                                    self.viewModel.showFullScreen.toggle()
+                                }
                             }
+                            .transition(.scale)
+
                     }
                     
                 }
                 .animation(.easeInOut, value: animationDuration)
                 .onAppear {
-                    viewModel.getApiResponse()
+                    viewModel.getNasaPlanatory()
                 }
                 
             }
@@ -109,6 +117,7 @@ struct ThumbnailImageView: View {
                         .onTapGesture {
                             withAnimation(.spring()) {
                                 self.viewModel.showFullScreen.toggle()
+                                self.viewModel.getOriginalImageFromDisk()
                             }
                         }
                         .padding(.all, 4)

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct ImageDiskClient: DiskProtocol {
+struct ImageDiskClient: DiskManager {
     
     func getURL(for filename: String) -> URL? {
         

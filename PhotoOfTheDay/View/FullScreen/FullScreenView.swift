@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct FullScreenView: View {
-    
-    @EnvironmentObject var viewModel: ViewModel
-    
+        
     @State var scale: CGFloat = 1
     @State var scaleAnchor: UnitPoint = .center
     @State var lastScale: CGFloat = 1
@@ -52,8 +50,6 @@ struct FullScreenView: View {
                 .gesture(dragGesture)
                 .gesture(magnificationGesture)
         }
-        .background(Color.black)
-        .edgesIgnoringSafeArea(.all)
     }
     
     

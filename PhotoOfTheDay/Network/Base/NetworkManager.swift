@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-protocol NetworkProtocol {
+protocol NetworkManager {
     
     func request<T: Decodable>(to endPoint: EndPoint, decodingType: T.Type) -> AnyPublisher<T, Error>
     
