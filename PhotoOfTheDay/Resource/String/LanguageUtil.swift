@@ -6,11 +6,12 @@
 //
 
 import Foundation
-internal class LangUtil: NSObject {
+class LangUtil: NSObject {
     
-    static var lang: String = "Base"
+    static private(set) var lang: String = "Base"
+    private static let defaultLang = "Base"
     
-    static func changeLanguage(newLang: String) {
+    static func changeLanguage(to newLang: String) {
         UserDefaults.standard.setValue(newLang, forKey: "selectedLanguage")
         UserDefaults.standard.synchronize()
         
@@ -19,6 +20,6 @@ internal class LangUtil: NSObject {
     
     static func loadLanguage() {
         let targetLang = UserDefaults.standard.object(forKey: "selectedLanguage") as? String
-        lang = targetLang ?? "Base"
+        lang = targetLang ?? defaultLang
     }
 }

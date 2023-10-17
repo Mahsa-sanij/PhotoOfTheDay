@@ -10,8 +10,8 @@ import Combine
 
 protocol NetworkManager {
     
-    func request<T: Decodable>(to endPoint: EndPoint, decodingType: T.Type) -> AnyPublisher<T, Error>
+    func request<T: Decodable>(to endPoint: EndPoint, decodingType: T.Type) -> AnyPublisher<T, NetworkError>
     
-    func download(from url: String, headers: [String: String]?, urlParameters: [String: String]?) -> AnyPublisher<Data, Error>
+    func download(from url: String, headers: [String: String]?, urlParameters: [String: String]?) -> AnyPublisher<Data, NetworkError>
 
 }

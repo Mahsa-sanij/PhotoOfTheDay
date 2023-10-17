@@ -15,10 +15,10 @@ enum NetworkError: Error {
     case invalidData
     case responseUnsuccessful
     
-    var localizedDescription: String {
+    var description: String {
         switch self {
             
-        case .requestFailure: return "Request Failed"
+        case .requestFailure: return "Unable to get data from the server."
         case .urlInvalid: return "URL Invalid"
         case .invalidData: return "Invalid Data"
         case .responseUnsuccessful: return "Response Unsuccessful"

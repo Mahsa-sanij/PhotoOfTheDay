@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol DiskProtocol {
+protocol DiskManager {
     
     func checkIfDataExists(in filename: String) -> Bool
     

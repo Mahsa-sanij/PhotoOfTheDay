@@ -28,7 +28,7 @@ enum MockEndpoint: PhotoOfTheDay.EndPoint {
             return "https://api.nasa.gov/planetary/apo"
             
         case .invalidURL:
-            return "http://www.fjeawo.com/user۸۴۷"
+            return "۱۳۴/#user@"
             
         }
     }
@@ -46,7 +46,8 @@ enum MockEndpoint: PhotoOfTheDay.EndPoint {
         switch self {
             
         case .successUrl:
-            return ["startDate": "2023-10-12",
+            return [ "api_key": "NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo",
+                     "startDate": "2023-10-12",
                     "endDate": "2023-10-22"]
             
         default:

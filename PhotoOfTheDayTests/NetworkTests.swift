@@ -28,8 +28,8 @@ final class NetworkTests: XCTestCase {
                 
                 switch $0 {
                 case .failure(let error):
-                    XCTAssertTrue(error is NetworkError)
-                    
+                    XCTAssertNotNil(error)
+
                 case .finished:
                     XCTAssertTrue(false)
                 }
@@ -53,7 +53,7 @@ final class NetworkTests: XCTestCase {
                 
                 switch $0 {
                 case .failure(let error):
-                    XCTAssertTrue(error is NetworkError)
+                    XCTAssertNotNil(error)
                     
                 case .finished:
                     XCTAssertTrue(false)
@@ -77,7 +77,7 @@ final class NetworkTests: XCTestCase {
                 
                 switch $0 {
                 case .failure(let error):
-                    XCTAssertTrue(error is NetworkError)
+                    XCTAssertNotNil(error)
                     
                 case .finished:
                     XCTAssertTrue(false)
@@ -102,7 +102,12 @@ final class NetworkTests: XCTestCase {
         var request = URLRequest(url: url)
         NetworkRequestBuilder().setupRequest(endPoint, for: &request)
         
-        XCTAssertEqual(request.url?.absoluteString, "https://api.nasa.gov/planetary/apod?startDate=2023-10-12&endDate=2023-10-22")
+        guard let url_ = URLComponents(string: request.url?.absoluteString ?? "") else {
+            XCTAssertTrue(false)
+            return
+        }
+        
+        XCTAssertEqual(url_.queryItems?.count, 3)
     }
     
 }

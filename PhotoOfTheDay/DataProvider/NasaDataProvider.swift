@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import UIKit
 
-struct NasaDataProvider {
+struct NasaDataProvider: DataProvider {
     
     private let networkClient: NetworkClient
     private let diskClient: ImageDiskClient
@@ -22,13 +22,12 @@ struct NasaDataProvider {
         self.diskClient = diskClient
     }
     
-    func getApiResponse() -> AnyPublisher<NasaResult, Error> {
+    func getApiResponse() -> AnyPublisher<NasaResult, NetworkError> {
         
         return networkClient.request(to: NasaEndPoint.planetary, decodingType: NasaResult.self)
-        
     }
     
-    func fetchImage(for date: String, from url: String) -> AnyPublisher<Bool, Error> {
+    func fetchImage(for date: String, from url: String) -> AnyPublisher<Bool, NetworkError> {
         
         let filename = date
         if !diskClient.checkIfDataExists(in: filename) {
@@ -46,17 +45,20 @@ struct NasaDataProvider {
                     return true
                     
                 }
+                .mapError({ _ in
+                    return NetworkError.requestFailure
+                })
                 .receive(on: DispatchQueue.main)
                 .eraseToAnyPublisher()
         }
         
         return Just(true)
-            .setFailureType(to: Error.self)
+            .setFailureType(to: NetworkError.self)
             .eraseToAnyPublisher()
         
     }
     
-    func getThumbnailImage(for date: String) -> AnyPublisher<UIImage, Error> {
+    func getThumbnailImage(for date: String) -> AnyPublisher<UIImage, NetworkError> {
         
         let filename = date
         
@@ -65,7 +67,7 @@ struct NasaDataProvider {
             if let uri = diskClient.getURL(for: filename), let image = downsampler.downsample(in: uri) {
                 
                 return Just(image)
-                    .setFailureType(to: Error.self)
+                    .setFailureType(to: NetworkError.self)
                     .eraseToAnyPublisher()
             }
             
@@ -75,7 +77,7 @@ struct NasaDataProvider {
         
     }
     
-    func getOriginalImage(for date: String) -> AnyPublisher<UIImage, Error> {
+    func getOriginalImage(for date: String) -> AnyPublisher<UIImage, NetworkError> {
         
         let filename = date
         
@@ -85,7 +87,7 @@ struct NasaDataProvider {
                 if let imageData = try diskClient.readDataFromDisk(in: filename), let image = UIImage(data: imageData) {
                     
                     return Just(image)
-                        .setFailureType(to: Error.self)
+                        .setFailureType(to: NetworkError.self)
                         .eraseToAnyPublisher()
                 }
             }

@@ -27,6 +27,11 @@ final class DiskTests: XCTestCase {
     
     func test_whenGetDataFromDiskCalled_thenDataIsNotNil() {
         
+        if let mockPath = Bundle(for: type(of: self)).url(forResource: "img_trumpet", withExtension: ".png"), let mockData = try? Data(contentsOf: mockPath) {
+            
+            try? diskClient.saveDataToDisk(data: mockData, to: "mock_image")
+        }
+        
         XCTAssertNoThrow(try diskClient.readDataFromDisk(in: "mock_image"))
         XCTAssertNotNil(try diskClient.readDataFromDisk(in: "mock_image"))
     }

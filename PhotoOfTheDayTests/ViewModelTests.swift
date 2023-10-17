@@ -6,30 +6,66 @@
 //
 
 import XCTest
+import Combine
+@testable import PhotoOfTheDay
 
 final class ViewModelTests: XCTestCase {
+    
+    private var cancelables = Set<AnyCancellable>()
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func test_whenGetNasaPlanatoryCalled_thenIsLoadingTrue(){
+        
+        let networkClient = NetworkClient()
+        let diskClient = ImageDiskClient()
+        
+        let nasaDataProvider = NasaDataProvider(networkClient: networkClient, diskClient: diskClient)
+        let viewModel = ViewModel(dataProvider: nasaDataProvider)
+        viewModel.getNasaPlanatory()
+            
+        XCTAssertTrue(viewModel.isLoading)
     }
+    
+    func test_whenGetNasaPlanatoryDone_thenIsLoadingFalse(){
+        
+        let networkClient = NetworkClient()
+        let diskClient = ImageDiskClient()
+        
+        let nasaDataProvider = NasaDataProvider(networkClient: networkClient, diskClient: diskClient)
+        let viewModel = ViewModel(dataProvider: nasaDataProvider)
+        viewModel.getNasaPlanatory()
+            
+        let expect = expectation(description: "results")
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        viewModel.$isLoading
+            .dropFirst()
+            .removeDuplicates()
+            .sink { value in
+                XCTAssertFalse(value)
+                expect.fulfill()
+            }
+            .store(in: &self.cancelables)
+        
+        waitForExpectations(timeout: 3000)
     }
+    
+    func test_whenGetNasaPlanatoryErrorOccurs_thenErrorMessageNotNil(){
+        
+        let mockDataProvider = MockDataProvider()
+        let viewModel = ViewModel(dataProvider: mockDataProvider)
+        viewModel.getNasaPlanatory()
+            
+        let expectation = expectation(description: "result")
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        viewModel.$errorMessage
+            .removeDuplicates()
+            .sink { value in
+                XCTAssertEqual(value ?? "", NetworkError.urlInvalid.description)
+                expectation.fulfill()
+            }
+            .store(in: &self.cancelables)
+        
+        waitForExpectations(timeout: 3000)
+        
     }
 
 }

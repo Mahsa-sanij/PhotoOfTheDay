@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1923CB032ADDE3D700CB453C /* NasaDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1923CB022ADDE3D700CB453C /* NasaDataProviderTests.swift */; };
+		1923CB052ADDFF7D00CB453C /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1923CB042ADDFF7D00CB453C /* ViewModelTests.swift */; };
+		1923CB072ADE06B400CB453C /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1923CB062ADE06B400CB453C /* DataProvider.swift */; };
+		1923CB092ADE09C200CB453C /* MockDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1923CB082ADE09C200CB453C /* MockDataProvider.swift */; };
+		1923CB0B2ADE28FD00CB453C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1923CB0A2ADE28FC00CB453C /* LoadingView.swift */; };
+		1923CB0D2ADE292300CB453C /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1923CB0C2ADE292300CB453C /* ErrorView.swift */; };
+		1923CB102ADE29E100CB453C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1923CB0F2ADE29E100CB453C /* ContentView.swift */; };
 		1975DED52ADAF0360024C3DC /* PhotoOfTheDayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DED42ADAF0360024C3DC /* PhotoOfTheDayApp.swift */; };
 		1975DED72ADAF0360024C3DC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DED62ADAF0360024C3DC /* MainView.swift */; };
 		1975DED92ADAF0390024C3DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1975DED82ADAF0390024C3DC /* Assets.xcassets */; };
-		1975DEF02ADAF03A0024C3DC /* PhotoOfTheDayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DEEF2ADAF03A0024C3DC /* PhotoOfTheDayUITests.swift */; };
-		1975DEF22ADAF03A0024C3DC /* PhotoOfTheDayUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DEF12ADAF03A0024C3DC /* PhotoOfTheDayUITestsLaunchTests.swift */; };
-		1975DF002ADAF2AA0024C3DC /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DEFF2ADAF2AA0024C3DC /* NetworkProtocol.swift */; };
+		1975DF002ADAF2AA0024C3DC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DEFF2ADAF2AA0024C3DC /* NetworkManager.swift */; };
 		1975DF022ADAF2FD0024C3DC /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF012ADAF2FD0024C3DC /* EndPoint.swift */; };
 		1975DF042ADAF34F0024C3DC /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF032ADAF34F0024C3DC /* HTTPMethod.swift */; };
 		1975DF062ADAF4E90024C3DC /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF052ADAF4E90024C3DC /* NetworkClient.swift */; };
@@ -21,10 +26,10 @@
 		1975DF112ADB12BA0024C3DC /* MockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF102ADB12BA0024C3DC /* MockModel.swift */; };
 		1975DF132ADB12F90024C3DC /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF122ADB12F90024C3DC /* NetworkTests.swift */; };
 		1975DF172ADB511F0024C3DC /* NetworkRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF162ADB511F0024C3DC /* NetworkRequestBuilder.swift */; };
-		1975DF1A2ADB5C520024C3DC /* ImageDiskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF192ADB5C510024C3DC /* ImageDiskManager.swift */; };
+		1975DF1A2ADB5C520024C3DC /* ImageDiskClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF192ADB5C510024C3DC /* ImageDiskClient.swift */; };
 		1975DF1D2ADB5C980024C3DC /* DiskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF1C2ADB5C980024C3DC /* DiskManager.swift */; };
 		1975DF222ADB627B0024C3DC /* DiskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF212ADB627B0024C3DC /* DiskTests.swift */; };
-		1975DF252ADB63290024C3DC /* ImageDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF242ADB63290024C3DC /* ImageDataProvider.swift */; };
+		1975DF252ADB63290024C3DC /* NasaDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF242ADB63290024C3DC /* NasaDataProvider.swift */; };
 		1975DF272ADB6CFE0024C3DC /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF262ADB6CFE0024C3DC /* ViewModel.swift */; };
 		1975DF2C2ADB72340024C3DC /* ImageDownSampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975DF2B2ADB72340024C3DC /* ImageDownSampler.swift */; };
 		1975DF2F2ADC37640024C3DC /* img_trumpet.png in Resources */ = {isa = PBXBuildFile; fileRef = 1975DF2E2ADC37640024C3DC /* img_trumpet.png */; };
@@ -51,25 +56,22 @@
 			remoteGlobalIDString = 1975DED02ADAF0360024C3DC;
 			remoteInfo = PhotoOfTheDay;
 		};
-		1975DEEC2ADAF03A0024C3DC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1975DEC92ADAF0360024C3DC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1975DED02ADAF0360024C3DC;
-			remoteInfo = PhotoOfTheDay;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1923CB022ADDE3D700CB453C /* NasaDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaDataProviderTests.swift; sourceTree = "<group>"; };
+		1923CB042ADDFF7D00CB453C /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
+		1923CB062ADE06B400CB453C /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		1923CB082ADE09C200CB453C /* MockDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProvider.swift; sourceTree = "<group>"; };
+		1923CB0A2ADE28FC00CB453C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		1923CB0C2ADE292300CB453C /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		1923CB0F2ADE29E100CB453C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1975DED12ADAF0360024C3DC /* PhotoOfTheDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoOfTheDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1975DED42ADAF0360024C3DC /* PhotoOfTheDayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoOfTheDayApp.swift; sourceTree = "<group>"; };
 		1975DED62ADAF0360024C3DC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1975DED82ADAF0390024C3DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1975DEE12ADAF03A0024C3DC /* PhotoOfTheDayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoOfTheDayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1975DEEB2ADAF03A0024C3DC /* PhotoOfTheDayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoOfTheDayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1975DEEF2ADAF03A0024C3DC /* PhotoOfTheDayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoOfTheDayUITests.swift; sourceTree = "<group>"; };
-		1975DEF12ADAF03A0024C3DC /* PhotoOfTheDayUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoOfTheDayUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		1975DEFF2ADAF2AA0024C3DC /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
+		1975DEFF2ADAF2AA0024C3DC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		1975DF012ADAF2FD0024C3DC /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		1975DF032ADAF34F0024C3DC /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		1975DF052ADAF4E90024C3DC /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
@@ -79,10 +81,10 @@
 		1975DF102ADB12BA0024C3DC /* MockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModel.swift; sourceTree = "<group>"; };
 		1975DF122ADB12F90024C3DC /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
 		1975DF162ADB511F0024C3DC /* NetworkRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestBuilder.swift; sourceTree = "<group>"; };
-		1975DF192ADB5C510024C3DC /* ImageDiskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDiskManager.swift; sourceTree = "<group>"; };
+		1975DF192ADB5C510024C3DC /* ImageDiskClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDiskClient.swift; sourceTree = "<group>"; };
 		1975DF1C2ADB5C980024C3DC /* DiskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskManager.swift; sourceTree = "<group>"; };
 		1975DF212ADB627B0024C3DC /* DiskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskTests.swift; sourceTree = "<group>"; };
-		1975DF242ADB63290024C3DC /* ImageDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataProvider.swift; sourceTree = "<group>"; };
+		1975DF242ADB63290024C3DC /* NasaDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaDataProvider.swift; sourceTree = "<group>"; };
 		1975DF262ADB6CFE0024C3DC /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		1975DF2B2ADB72340024C3DC /* ImageDownSampler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownSampler.swift; sourceTree = "<group>"; };
 		1975DF2E2ADC37640024C3DC /* img_trumpet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_trumpet.png; sourceTree = "<group>"; };
@@ -117,22 +119,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1975DEE82ADAF03A0024C3DC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1923CB0E2ADE298A00CB453C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1975DED62ADAF0360024C3DC /* MainView.swift */,
+				1923CB0F2ADE29E100CB453C /* ContentView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		1923CB112ADE2A3E00CB453C /* FullScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1975DF4F2ADC62BE0024C3DC /* FullScreenView.swift */,
+			);
+			path = FullScreen;
+			sourceTree = "<group>";
+		};
 		1975DEC82ADAF0360024C3DC = {
 			isa = PBXGroup;
 			children = (
 				1975DED32ADAF0360024C3DC /* PhotoOfTheDay */,
 				1975DEE42ADAF03A0024C3DC /* PhotoOfTheDayTests */,
-				1975DEEE2ADAF03A0024C3DC /* PhotoOfTheDayUITests */,
 				1975DED22ADAF0360024C3DC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -142,7 +153,6 @@
 			children = (
 				1975DED12ADAF0360024C3DC /* PhotoOfTheDay.app */,
 				1975DEE12ADAF03A0024C3DC /* PhotoOfTheDayTests.xctest */,
-				1975DEEB2ADAF03A0024C3DC /* PhotoOfTheDayUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,17 +181,10 @@
 				1975DF0C2ADB119A0024C3DC /* Mock */,
 				1975DF122ADB12F90024C3DC /* NetworkTests.swift */,
 				1975DF212ADB627B0024C3DC /* DiskTests.swift */,
+				1923CB022ADDE3D700CB453C /* NasaDataProviderTests.swift */,
+				1923CB042ADDFF7D00CB453C /* ViewModelTests.swift */,
 			);
 			path = PhotoOfTheDayTests;
-			sourceTree = "<group>";
-		};
-		1975DEEE2ADAF03A0024C3DC /* PhotoOfTheDayUITests */ = {
-			isa = PBXGroup;
-			children = (
-				1975DEEF2ADAF03A0024C3DC /* PhotoOfTheDayUITests.swift */,
-				1975DEF12ADAF03A0024C3DC /* PhotoOfTheDayUITestsLaunchTests.swift */,
-			);
-			path = PhotoOfTheDayUITests;
 			sourceTree = "<group>";
 		};
 		1975DEFE2ADAF21F0024C3DC /* Network */ = {
@@ -197,7 +200,7 @@
 		1975DF092ADAF6D10024C3DC /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				1975DEFF2ADAF2AA0024C3DC /* NetworkProtocol.swift */,
+				1975DEFF2ADAF2AA0024C3DC /* NetworkManager.swift */,
 				1975DF012ADAF2FD0024C3DC /* EndPoint.swift */,
 				1975DF032ADAF34F0024C3DC /* HTTPMethod.swift */,
 				1975DF0A2ADB02430024C3DC /* NetworkError.swift */,
@@ -211,6 +214,7 @@
 			children = (
 				1975DF0E2ADB11C60024C3DC /* MockEndpoint.swift */,
 				1975DF102ADB12BA0024C3DC /* MockModel.swift */,
+				1923CB082ADE09C200CB453C /* MockDataProvider.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -218,7 +222,7 @@
 		1975DF182ADB5C000024C3DC /* Disk */ = {
 			isa = PBXGroup;
 			children = (
-				1975DF192ADB5C510024C3DC /* ImageDiskManager.swift */,
+				1975DF192ADB5C510024C3DC /* ImageDiskClient.swift */,
 				1975DF1C2ADB5C980024C3DC /* DiskManager.swift */,
 			);
 			path = Disk;
@@ -227,7 +231,8 @@
 		1975DF232ADB62EC0024C3DC /* DataProvider */ = {
 			isa = PBXGroup;
 			children = (
-				1975DF242ADB63290024C3DC /* ImageDataProvider.swift */,
+				1923CB062ADE06B400CB453C /* DataProvider.swift */,
+				1975DF242ADB63290024C3DC /* NasaDataProvider.swift */,
 				1975DF2B2ADB72340024C3DC /* ImageDownSampler.swift */,
 			);
 			path = DataProvider;
@@ -245,8 +250,8 @@
 		1975DF292ADB71430024C3DC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1975DED62ADAF0360024C3DC /* MainView.swift */,
-				1975DF4F2ADC62BE0024C3DC /* FullScreenView.swift */,
+				1923CB0E2ADE298A00CB453C /* Main */,
+				1923CB112ADE2A3E00CB453C /* FullScreen */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -335,6 +340,8 @@
 			isa = PBXGroup;
 			children = (
 				199CA1232ADD047100AEE0FA /* CardView.swift */,
+				1923CB0A2ADE28FC00CB453C /* LoadingView.swift */,
+				1923CB0C2ADE292300CB453C /* ErrorView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -377,24 +384,6 @@
 			productReference = 1975DEE12ADAF03A0024C3DC /* PhotoOfTheDayTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		1975DEEA2ADAF03A0024C3DC /* PhotoOfTheDayUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1975DEFB2ADAF03A0024C3DC /* Build configuration list for PBXNativeTarget "PhotoOfTheDayUITests" */;
-			buildPhases = (
-				1975DEE72ADAF03A0024C3DC /* Sources */,
-				1975DEE82ADAF03A0024C3DC /* Frameworks */,
-				1975DEE92ADAF03A0024C3DC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1975DEED2ADAF03A0024C3DC /* PBXTargetDependency */,
-			);
-			name = PhotoOfTheDayUITests;
-			productName = PhotoOfTheDayUITests;
-			productReference = 1975DEEB2ADAF03A0024C3DC /* PhotoOfTheDayUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -411,10 +400,6 @@
 					1975DEE02ADAF03A0024C3DC = {
 						CreatedOnToolsVersion = 14.2;
 						LastSwiftMigration = 1420;
-						TestTargetID = 1975DED02ADAF0360024C3DC;
-					};
-					1975DEEA2ADAF03A0024C3DC = {
-						CreatedOnToolsVersion = 14.2;
 						TestTargetID = 1975DED02ADAF0360024C3DC;
 					};
 				};
@@ -435,7 +420,6 @@
 			targets = (
 				1975DED02ADAF0360024C3DC /* PhotoOfTheDay */,
 				1975DEE02ADAF03A0024C3DC /* PhotoOfTheDayTests */,
-				1975DEEA2ADAF03A0024C3DC /* PhotoOfTheDayUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -460,13 +444,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1975DEE92ADAF03A0024C3DC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -477,21 +454,25 @@
 				1975DF1D2ADB5C980024C3DC /* DiskManager.swift in Sources */,
 				1975DF3A2ADC4EF50024C3DC /* ImageReference.swift in Sources */,
 				1975DF4A2ADC4FDA0024C3DC /* String.swift in Sources */,
-				1975DF1A2ADB5C520024C3DC /* ImageDiskManager.swift in Sources */,
+				1975DF1A2ADB5C520024C3DC /* ImageDiskClient.swift in Sources */,
 				1975DED72ADAF0360024C3DC /* MainView.swift in Sources */,
 				1975DF0B2ADB02430024C3DC /* NetworkError.swift in Sources */,
 				1975DF462ADC4F8F0024C3DC /* LanguageUtil.swift in Sources */,
-				1975DF252ADB63290024C3DC /* ImageDataProvider.swift in Sources */,
+				1975DF252ADB63290024C3DC /* NasaDataProvider.swift in Sources */,
 				1975DF312ADC3FBD0024C3DC /* NasaEndPoint.swift in Sources */,
 				1975DED52ADAF0360024C3DC /* PhotoOfTheDayApp.swift in Sources */,
 				1975DF2C2ADB72340024C3DC /* ImageDownSampler.swift in Sources */,
+				1923CB0D2ADE292300CB453C /* ErrorView.swift in Sources */,
 				1975DF502ADC62BE0024C3DC /* FullScreenView.swift in Sources */,
 				1975DF342ADC42770024C3DC /* NasaResult.swift in Sources */,
+				1923CB102ADE29E100CB453C /* ContentView.swift in Sources */,
 				1975DF022ADAF2FD0024C3DC /* EndPoint.swift in Sources */,
 				1975DF042ADAF34F0024C3DC /* HTTPMethod.swift in Sources */,
-				1975DF002ADAF2AA0024C3DC /* NetworkProtocol.swift in Sources */,
+				1975DF002ADAF2AA0024C3DC /* NetworkManager.swift in Sources */,
 				1975DF062ADAF4E90024C3DC /* NetworkClient.swift in Sources */,
 				199CA1212ADD044700AEE0FA /* UIScreen.swift in Sources */,
+				1923CB0B2ADE28FD00CB453C /* LoadingView.swift in Sources */,
+				1923CB072ADE06B400CB453C /* DataProvider.swift in Sources */,
 				199CA1242ADD047100AEE0FA /* CardView.swift in Sources */,
 				1975DF442ADC4F6B0024C3DC /* TextReference.swift in Sources */,
 				1975DF272ADB6CFE0024C3DC /* ViewModel.swift in Sources */,
@@ -504,19 +485,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1923CB092ADE09C200CB453C /* MockDataProvider.swift in Sources */,
 				1975DF222ADB627B0024C3DC /* DiskTests.swift in Sources */,
 				1975DF132ADB12F90024C3DC /* NetworkTests.swift in Sources */,
+				1923CB052ADDFF7D00CB453C /* ViewModelTests.swift in Sources */,
 				1975DF0F2ADB11C60024C3DC /* MockEndpoint.swift in Sources */,
 				1975DF112ADB12BA0024C3DC /* MockModel.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1975DEE72ADAF03A0024C3DC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1975DEF02ADAF03A0024C3DC /* PhotoOfTheDayUITests.swift in Sources */,
-				1975DEF22ADAF03A0024C3DC /* PhotoOfTheDayUITestsLaunchTests.swift in Sources */,
+				1923CB032ADDE3D700CB453C /* NasaDataProviderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,11 +502,6 @@
 			isa = PBXTargetDependency;
 			target = 1975DED02ADAF0360024C3DC /* PhotoOfTheDay */;
 			targetProxy = 1975DEE22ADAF03A0024C3DC /* PBXContainerItemProxy */;
-		};
-		1975DEED2ADAF03A0024C3DC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1975DED02ADAF0360024C3DC /* PhotoOfTheDay */;
-			targetProxy = 1975DEEC2ADAF03A0024C3DC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -777,42 +747,6 @@
 			};
 			name = Release;
 		};
-		1975DEFC2ADAF03A0024C3DC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 96EWZNS6N9;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.PhotoOfTheDayUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = PhotoOfTheDay;
-			};
-			name = Debug;
-		};
-		1975DEFD2ADAF03A0024C3DC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 96EWZNS6N9;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.PhotoOfTheDayUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = PhotoOfTheDay;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -839,15 +773,6 @@
 			buildConfigurations = (
 				1975DEF92ADAF03A0024C3DC /* Debug */,
 				1975DEFA2ADAF03A0024C3DC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1975DEFB2ADAF03A0024C3DC /* Build configuration list for PBXNativeTarget "PhotoOfTheDayUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1975DEFC2ADAF03A0024C3DC /* Debug */,
-				1975DEFD2ADAF03A0024C3DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

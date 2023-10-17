@@ -11,22 +11,23 @@ import UIKit
 
 class ViewModel: ObservableObject {
     
-    let dataProvider : NasaDataProvider
+    let dataProvider: DataProvider
     private var cancellables = Set<AnyCancellable>()
     
     private var response: NasaResult?
     @Published var title: String?
     @Published var thumbnailImage: UIImage?
+    @Published var originalImage: UIImage?
     @Published var isLoading: Bool = false
     @Published var errorMessage: String? = nil
     @Published var showFullScreen: Bool = false
 
-    init(dataProvider: NasaDataProvider) {
+    init(dataProvider: DataProvider) {
         
         self.dataProvider = dataProvider
     }
     
-    func getApiResponse(){
+    func getNasaPlanatory(){
         
         self.isLoading = true
         
@@ -40,7 +41,7 @@ class ViewModel: ObservableObject {
                     
                 case .failure(let error):
                     self.isLoading = false
-                    self.errorMessage = error.localizedDescription
+                    self.errorMessage = error.description
                 }
                 
             } receiveValue: { data in
@@ -94,6 +95,19 @@ class ViewModel: ObservableObject {
                 
             } receiveValue: { image in
                 self.thumbnailImage = image
+            }
+            .store(in: &self.cancellables)
+    }
+    
+    func getOriginalImageFromDisk() {
+        
+        guard let date = self.response?.date else { return }
+        
+        self.dataProvider.getOriginalImage(for: date)
+            .sink { _ in
+                
+            } receiveValue: { image in
+                self.originalImage = image
             }
             .store(in: &self.cancellables)
     }

@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct ErrorView: View {
+    
+    let message: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        Text(message)
+            .padding(.horizontal, 32)
     }
 }
 
-#Preview {
-    ErrorView()
-}

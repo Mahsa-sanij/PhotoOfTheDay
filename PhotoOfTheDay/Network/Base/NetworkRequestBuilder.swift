@@ -18,9 +18,7 @@ struct NetworkRequestBuilder {
         if endpoint.httpMethod == .post {
             configureBodyParameters(endpoint.body, for: &request)
         }
-        
     }
-    
     
     func configureHeaders(_ headers: [String: String]?, for request: inout URLRequest) {
         
@@ -29,7 +27,6 @@ struct NetworkRequestBuilder {
         }
     }
     
-    //Configure body parameters for POST requests
     func configureBodyParameters(_ parameters: [String: Any]?, for request: inout URLRequest) {
         
         if let bodyParameters = parameters,
@@ -38,7 +35,6 @@ struct NetworkRequestBuilder {
         }
     }
     
-    //Configure URL parameters
     func configureUrlParameters(_ parameters: [String: String]?, for request: inout URLRequest) {
         
         if let urlParameters = parameters,
