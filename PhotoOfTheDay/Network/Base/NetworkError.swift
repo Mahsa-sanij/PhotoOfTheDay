@@ -10,19 +10,17 @@ import Foundation
 enum NetworkError: Error {
     
     case requestFailure
-    case urlInvalid
+    case invalidURL
     case jsonConversionFailure
     case invalidData
-    case responseUnsuccessful
     
     var description: String {
         switch self {
             
-        case .requestFailure: return "Unable to get data from the server."
-        case .urlInvalid: return "URL Invalid"
-        case .invalidData: return "Invalid Data"
-        case .responseUnsuccessful: return "Response Unsuccessful"
-        case .jsonConversionFailure: return "JSON Conversion Failure"
+        case .requestFailure: return TextReferences.errorRequestFailure
+        case .invalidURL: return TextReferences.errorUrlInvalid
+        case .invalidData: return TextReferences.errorDataInvalid
+        case .jsonConversionFailure: return TextReferences.errorJsonConversionFailure
         }
     }
 }

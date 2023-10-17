@@ -7,39 +7,69 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ContentView<Content: View>: View {
     
     @EnvironmentObject var viewModel: ViewModel
     
+    private var destinationView: () -> Content
+    
+    init(@ViewBuilder destinationView: @escaping () -> Content) {
+        
+        self.destinationView = destinationView
+    }
+    
     var body: some View {
         
-        ZStack(alignment: .center) {
+        ZStack {
             
-            VStack(spacing: 12) {
+            ZStack(alignment: .center) {
                 
-                Spacer()
-                
-                if !viewModel.showFullScreen {
+                VStack(spacing: 12) {
                     
-                    ThumbnailImageView()
-                        .frame(height: UIScreen.height / 2)
+                    Spacer()
+                    
+                    if !viewModel.showFullScreen {
                         
+                        ThumbnailImageView()
+                            .frame(height: UIScreen.height / 2)
+                        
+                    }
+                    
+                    Spacer()
+                    
                 }
                 
-                Spacer()
+                VStack {
+                    
+                    Spacer()
+                    
+                    
+                    Text(self.viewModel.title ?? "")
+                        .font(.title)
+                        .bold()
+                        .lineLimit(3)
+                        .minimumScaleFactor(.leastNonzeroMagnitude)
+                        .multilineTextAlignment(.center)
+                        .opacity(self.viewModel.showFullScreen ? 0 : 1)
+                        .frame(height: UIScreen.height * 0.12)
+                }
                 
             }
+            .padding()
             
-            Text(self.viewModel.title ?? "")
-                .font(.title)
-                .bold()
-                .multilineTextAlignment(.center)
-                .fixedSize(horizontal: false, vertical: true)
-                .opacity(self.viewModel.showFullScreen ? 0 : 1)
-                .offset(y: UIScreen.height / 4 + 32)
             
+            if viewModel.showFullScreen {
+                
+                destinationView()
+                    .onTapGesture {
+                        withAnimation {
+                            self.viewModel.showFullScreen.toggle()
+                        }
+                    }
+                    .transition(.scale)
+                
+            }
         }
-        .padding()
     }
 }
 
@@ -84,6 +114,3 @@ struct ThumbnailImageView: View {
     
 }
 
-#Preview {
-    ContentView()
-}

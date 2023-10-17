@@ -6,4 +6,9 @@
   
 */
 "title" = "Picture of the day";
+"retry" = "Retry";
+"error_request_failure" = "Unable to get data from the server.";
+"error_json_conversion_failure" = "JSON Conversion Failure";
+"error_url_invalid"     = "URL Invalid";
+"error_data_invalid"    = "Invalid Data";
 

@@ -6,3 +6,8 @@
   
 */
 "title" = "Image du jour";
+"retry" = "Réessayez";
+"error_request_failure" = "Impossible d'obtenir les données du serveur.";
+"error_json_conversion_failure" = "Échec de la conversion JSON";
+"error_url_invalid"     = "URL Invalide";
+"error_data_invalid"    = "Données invalides";

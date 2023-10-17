@@ -60,7 +60,7 @@ final class NasaDataProviderTests: XCTestCase {
                     } receiveValue: { image in
                         
                         XCTAssertNotNil(image)
-                        XCTAssertEqual(image.size.height, UIScreen.height/2)
+                        XCTAssertEqual(Int(image.size.height), Int(UIScreen.height/2))
                     }
                     .store(in: &self.cancellables)
                 

@@ -31,25 +31,19 @@ struct MainView: View {
                     }
                     else if viewModel.errorMessage != nil {
                         
-                        ErrorView(message: viewModel.errorMessage!)
+                        ErrorView(message: viewModel.errorMessage!) {
+                            
+                            self.viewModel.getNasaPlanatory()
+                        }
                         
                     }
                     else if viewModel.title != nil && viewModel.thumbnailImage != nil {
                         
-                        ContentView()
+                        ContentView {
+                            
+                            FullScreenView(image: viewModel.originalImage ?? viewModel.thumbnailImage!)
+                        }
                         
-                    }
-                    
-                    if viewModel.showFullScreen {
-                        
-                        FullScreenView(image: viewModel.originalImage ?? viewModel.thumbnailImage!)
-                            .onTapGesture {
-                                withAnimation {
-                                    self.viewModel.showFullScreen.toggle()
-                                }
-                            }
-                            .transition(.scale)
-
                     }
                     
                 }
@@ -67,3 +61,4 @@ struct MainView: View {
 }
 
 
+ 

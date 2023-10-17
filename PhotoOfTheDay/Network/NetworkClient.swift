@@ -18,7 +18,7 @@ struct NetworkClient: NetworkManager {
     func request<T>(to endPoint: EndPoint, decodingType: T.Type) -> AnyPublisher<T, NetworkError> where T : Decodable {
         
         guard let url = URL(string: endPoint.url) else {
-            return Fail(error: NetworkError.urlInvalid).eraseToAnyPublisher()
+            return Fail(error: NetworkError.invalidURL).eraseToAnyPublisher()
         }
         
         var request = URLRequest(url: url)
@@ -51,7 +51,7 @@ struct NetworkClient: NetworkManager {
     func download(from url: String, headers: [String: String]? = nil, urlParameters: [String: String]? = nil) -> AnyPublisher<Data, NetworkError> {
         
         guard let url_ = URL(string: url) else {
-            return Fail(error: NetworkError.urlInvalid).eraseToAnyPublisher()
+            return Fail(error: NetworkError.invalidURL).eraseToAnyPublisher()
         }
         
         var request = URLRequest(url: url_)

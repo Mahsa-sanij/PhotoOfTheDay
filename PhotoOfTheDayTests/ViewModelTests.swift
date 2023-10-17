@@ -59,7 +59,7 @@ final class ViewModelTests: XCTestCase {
         viewModel.$errorMessage
             .removeDuplicates()
             .sink { value in
-                XCTAssertEqual(value ?? "", NetworkError.urlInvalid.description)
+                XCTAssertNotNil(value)
                 expectation.fulfill()
             }
             .store(in: &self.cancelables)

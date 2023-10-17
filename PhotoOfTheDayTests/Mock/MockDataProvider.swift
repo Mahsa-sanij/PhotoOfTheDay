@@ -13,20 +13,20 @@ struct MockDataProvider: DataProvider{
     
     func getApiResponse() -> AnyPublisher<NasaResult, NetworkError> {
         
-        return Fail(error: NetworkError.urlInvalid).eraseToAnyPublisher()
+        return Fail(error: NetworkError.requestFailure).eraseToAnyPublisher()
     }
     
     func fetchImage(for date: String, from url: String) -> AnyPublisher<Bool, NetworkError> {
-        return Fail(error: NetworkError.urlInvalid).eraseToAnyPublisher()
+        return Fail(error: NetworkError.requestFailure).eraseToAnyPublisher()
     }
     
     func getThumbnailImage(for date: String) -> AnyPublisher<UIImage, NetworkError> {
-        return Fail(error: NetworkError.urlInvalid).eraseToAnyPublisher()
+        return Fail(error: NetworkError.requestFailure).eraseToAnyPublisher()
 
     }
     
     func getOriginalImage(for date: String) -> AnyPublisher<UIImage, NetworkError> {
-        return Fail(error: NetworkError.urlInvalid).eraseToAnyPublisher()
+        return Fail(error: NetworkError.requestFailure).eraseToAnyPublisher()
 
     }
     

@@ -10,11 +10,18 @@ import SwiftUI
 struct ErrorView: View {
     
     let message: String
+    let retryAction: () -> Void
     
     var body: some View {
         
-        Text(message)
-            .padding(.horizontal, 32)
+        VStack(spacing: 16) {
+            
+            Text(message)
+            
+            Button(TextReferences.retry, systemImage: "arrow.circlepath", action: retryAction)
+        }
+        .padding(.horizontal, 32)
+
     }
 }
 
